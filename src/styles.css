@@ -371,7 +371,6 @@ body {
 
 /* FINANCEIRO */
 .fin-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-
 .fin-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
 .fin-card{background:#1e293b;border-radius:12px;padding:20px;border-left:4px solid #666}
 .fin-receita{border-color:#22c55e}.fin-despesa{border-color:#ef4444}
