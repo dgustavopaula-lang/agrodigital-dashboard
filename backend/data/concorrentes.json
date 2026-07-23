@@ -1,0 +1,68 @@
+{
+  "atualizadoEm": "2026-07-22",
+  "fontes": ["sites oficiais", "Capterra", "Forbes Agro", "comparativos de mercado"],
+  "concorrentes": [
+    {
+      "id": 1,
+      "nome": "Aegro",
+      "categoria": "Concorrente Direto Nº 1",
+      "publicoAlvo": "Pequeno/médio produtor",
+      "preco": "R$ 150–300 parcial",
+      "ndviSatelite": "No mapa",
+      "financeiroBasico": "Ponto mais forte deles",
+      "maquinario": "Ninguém faz",
+      "chatbotIA": "Não tem",
+      "descricao": "Gestão rural completa para o produtor pequeno/médio. Rival mais parecido com o AgroDigital."
+    },
+    {
+      "id": 2,
+      "nome": "Solinftec",
+      "categoria": "Gigante Enterprise",
+      "publicoAlvo": "Grandes operações, usinas",
+      "preco": "Sob consulta",
+      "ndviSatelite": "+ robôs em campo",
+      "financeiroBasico": "Não é o foco",
+      "maquinario": "Integra máquinas, sem aluguel",
+      "chatbotIA": "ALICE multiagente",
+      "descricao": "IA (ALICE) + robôs Solix para grandes operações. Não briga pelo mesmo cliente."
+    },
+    {
+      "id": 3,
+      "nome": "Agrotools",
+      "categoria": "Dashboard Clima Azul",
+      "publicoAlvo": "Corporações e tradings",
+      "preco": "Grátis / R$ 1.500/ano",
+      "ndviSatelite": "Geoespacial",
+      "financeiroBasico": "Não tem",
+      "maquinario": "Monitora frota própria",
+      "chatbotIA": "Não tem",
+      "descricao": "Vende para tradings, bancos e seguradoras (ESG, crédito), não para o produtor."
+    },
+    {
+      "id": 4,
+      "nome": "Climate FieldView",
+      "categoria": "Referência de UX",
+      "publicoAlvo": "Produtor de grãos (Bayer)",
+      "preco": "Grátis / R$ 1.500/ano",
+      "ndviSatelite": "Referência",
+      "financeiroBasico": "Não tem",
+      "maquinario": "Não faz fiscal",
+      "chatbotIA": "Não tem",
+      "descricao": "Agricultura de precisão com plano gratuito (Bayer). Estudar design, não temer o preço."
+    }
+  ],
+  "agrodigital": {
+    "publicoAlvo": "Fazenda pequena/média",
+    "preco": "R$ 150–300",
+    "ndviSatelite": "Por talhão",
+    "financeiroBasico": "N/F",
+    "maquinario": "Planejado",
+    "chatbotIA": "Planejado"
+  },
+  "oportunidades": [
+    "Único com aluguel de maquinário entre os concorrentes",
+    "Chatbot IA planejado — nenhum concorrente direto tem",
+    "NDVI por talhão (granularidade que Aegro não entrega)",
+    "Preço competitivo frente ao FieldView sem perder UX"
+  ]
+}

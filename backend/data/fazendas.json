@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nome": "Fazenda Santa Clara",
+    "proprietario": "Familia Paula Santos",
+    "cidade": "Paranaiguara",
+    "estado": "GO",
+    "pais": "Brasil",
+    "areaHectares": 480,
+    "culturaPrincipal": "Soja",
+    "ativa": true
+  },
+  {
+    "id": 2,
+    "nome": "Fazenda Boa Vista",
+    "proprietario": "Familia Paula Santos",
+    "cidade": "Uberlandia",
+    "estado": "MG",
+    "pais": "Brasil",
+    "areaHectares": 320,
+    "culturaPrincipal": "Milho",
+    "ativa": true
+  },
+  {
+    "id": 3,
+    "nome": "Fazenda Pipe",
+    "proprietario": "Familia Paula Santos",
+    "cidade": "Luanda",
+    "estado": "Luanda",
+    "pais": "Angola",
+    "areaHectares": 600,
+    "culturaPrincipal": "Mandioca",
+    "ativa": true
+  }
+]

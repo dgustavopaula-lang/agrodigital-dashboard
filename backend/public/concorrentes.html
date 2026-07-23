@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroDigital · Análise de Concorrentes</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:root{--bg:#0f172a;--surface:#1e293b;--surface2:#334155;--orange:#F97316;--orange-dim:#7c3a10;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--blue:#3b82f6;--text:#f1f5f9;--muted:#94a3b8;--border:#334155;--radius:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:14px;min-height:100vh}
+header{padding:24px 32px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo-icon{width:40px;height:40px;background:#14532d;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.header-title h1{font-size:20px;font-weight:700}
+.header-title h1 span{color:var(--orange)}
+.header-title p{color:var(--muted);font-size:13px;margin-top:2px}
+.header-right{text-align:right}
+.header-right .date{color:var(--orange);font-weight:600;font-size:13px}
+.header-right .sources{color:var(--muted);font-size:12px;margin-top:4px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:6px;transition:color .2s}
+.back-link:hover{color:var(--orange)}
+.tabs{padding:0 32px;display:flex;gap:4px;border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{padding:10px 16px;border-radius:8px 8px 0 0;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap;transition:all .2s}
+.tab:hover{color:var(--text)}
+.tab.active{background:var(--orange);color:white}
+main{padding:28px 32px}
+.section-title{font-size:16px;font-weight:700;color:var(--orange);display:flex;align-items:center;margin-bottom:16px}
+.section-title::before{content:'';display:inline-block;width:4px;height:18px;background:var(--orange);border-radius:2px;margin-right:10px}
+.market-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:32px}
+.market-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:border-color .2s}
+.market-card:hover{border-color:var(--orange)}
+.market-card .label{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.market-card .name{font-weight:700;color:var(--orange);font-size:15px;margin-bottom:6px}
+.market-card .desc{color:var(--muted);font-size:12px;line-height:1.5}
+.matrix-wrap{overflow-x:auto;margin-bottom:32px}
+table{width:100%;border-collapse:collapse;min-width:700px}
+thead th{background:var(--surface2);padding:10px 14px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+thead th.hl{background:var(--orange);color:white}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+tbody td{padding:10px 14px;font-size:13px;color:var(--muted)}
+tbody td:first-child{color:var(--text);font-weight:500}
+.b{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600}
+.bo{background:var(--orange-dim);color:var(--orange)}
+.bg{background:#14532d;color:var(--green)}
+.by{background:#713f12;color:var(--yellow)}
+.br{background:#450a0a;color:var(--red)}
+.bb{background:#1e3a5f;color:var(--blue)}
+.bz{background:var(--surface2);color:var(--muted)}
+.opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.opp-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
+.opp-card i{color:var(--green);font-size:18px;margin-top:1px;flex-shrink:0}
+.opp-card span{color:var(--text);font-size:13px;line-height:1.5}
+.detail-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.detail-panel h2{font-size:18px;font-weight:700;color:var(--orange);margin-bottom:6px}
+.detail-panel .cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.detail-panel .desc{color:var(--muted);line-height:1.6;margin-bottom:20px}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.detail-item{background:var(--bg);border-radius:6px;padding:12px}
+.detail-item .key{font-size:11px;color:var(--muted);margin-bottom:4px}
+.detail-item .val{font-size:13px;font-weight:600;color:var(--text)}
+.loading{text-align:center;padding:60px;color:var(--muted)}
+.loading i{font-size:32px;display:block;margin-bottom:12px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <div class="logo-icon">&#127807;</div>
+    <div class="header-title">
+      <h1>Agro<span>Digital</span> &middot; An&aacute;lise de Concorrentes</h1>
+      <p>Intelig&ecirc;ncia competitiva para posicionar o produto</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="/" class="back-link"><i class="ri-arrow-left-line"></i> Painel principal</a>
+    <div class="date" id="data-at"></div>
+    <div class="sources" id="fontes"></div>
+  </div>
+</header>
+<div class="tabs" id="tabs"></div>
+<main id="main"><div class="loading"><i class="ri-loader-4-line"></i>Carregando dados da API...</div></main>
+<footer>GPS.dev &mdash; Gustavo Paula Santos &middot; AgroDigital &middot; An&aacute;lise de Concorrentes</footer>
+<script>
+var API='/api/concorrentes',D=null,aba='visao-geral';
+function badge(t){
+  if(!t||t==='N/F')return '<span class="b bz">'+t+'</span>';
+  var l=t.toLowerCase();
+  if(l.includes('planejado'))return '<span class="b bo">'+t+'</span>';
+  if(l.includes('refer')||l.includes('mais forte')||l.includes('multiagente'))return '<span class="b bg">'+t+'</span>';
+  if(l.includes('nao tem')||l.includes('n\u00e3o tem')||l.includes('ningu')||l.includes('n\u00e3o faz')||l.includes('n\u00e3o \u00e9'))return '<span class="b br">'+t+'</span>';
+  if(l.includes('sob consulta'))return '<span class="b bz">'+t+'</span>';
+  if(l.includes('gr\u00e1tis')||l.includes('geoespacial')||l.includes('campo'))return '<span class="b bb">'+t+'</span>';
+  return '<span class="b by">'+t+'</span>';
+}
+function isBadge(k){return k!=='publicoAlvo'&&k!=='preco';}
+function renderVisao(){
+  var c=D.concorrentes,a=D.agrodigital;
+  var cards=c.map(function(x){return '<div class="market-card" onclick="irConc('+x.id+')"><div class="label">'+x.categoria+'</div><div class="name">'+x.nome+'</div><div class="desc">'+x.descricao+'</div></div>';}).join('');
+  var cols=[{l:'P\u00fablico-alvo',k:'publicoAlvo'},{l:'Pre\u00e7o (R$/m\u00eas)',k:'preco'},{l:'NDVI por sat\u00e9lite',k:'ndviSatelite'},{l:'Financeiro b\u00e1sico',k:'financeiroBasico'},{l:'Maquin\u00e1rio (aluguel)',k:'maquinario'},{l:'Chatbot / IA',k:'chatbotIA'}];
+  var th='<th>CRIT\u00c9RIO</th><th class="hl">&#8853; AGRODIGITAL</th>'+c.map(function(x){return '<th>'+x.nome.toUpperCase()+'</th>';}).join('');
+  var tb=cols.map(function(col){
+    var av=isBadge(col.k)?badge(a[col.k]):(a[col.k]||'\u2014');
+    var cv=c.map(function(x){return '<td>'+(isBadge(col.k)?badge(x[col.k]):(x[col.k]||'\u2014'))+'</td>';}).join('');
+    return '<tr><td>'+col.l+'</td><td>'+av+'</td>'+cv+'</tr>';
+  }).join('');
+  return '<div class="section-title">Mapa do mercado</div><div class="market-map">'+cards+'</div><div class="section-title">Matriz de compara\u00e7\u00e3o</div><div class="matrix-wrap"><table><thead><tr>'+th+'</tr></thead><tbody>'+tb+'</tbody></table></div>';
+}
+function renderOpp(){
+  var items=D.oportunidades.map(function(o){return '<div class="opp-card"><i class="ri-checkbox-circle-line"></i><span>'+o+'</span></div>';}).join('');
+  return '<div class="section-title">Oportunidades identificadas</div><div class="opp-grid">'+items+'</div>';
+}
+function renderConc(id){
+  var c=D.concorrentes.find(function(x){return x.id===id;});
+  if(!c)return '<p>N\u00e3o encontrado.</p>';
+  return '<div class="detail-panel"><h2>'+c.nome+'</h2><div class="cat">'+c.categoria+'</div><p class="desc">'+c.descricao+'</p><div class="detail-grid"><div class="detail-item"><div class="key">P\u00fablico-alvo</div><div class="val">'+c.publicoAlvo+'</div></div><div class="detail-item"><div class="key">Pre\u00e7o</div><div class="val">'+c.preco+'</div></div><div class="detail-item"><div class="key">NDVI Sat\u00e9lite</div><div class="val">'+c.ndviSatelite+'</div></div><div class="detail-item"><div class="key">Financeiro</div><div class="val">'+c.financeiroBasico+'</div></div><div class="detail-item"><div class="key">Maquin\u00e1rio</div><div class="val">'+c.maquinario+'</div></div><div class="detail-item"><div class="key">Chatbot / IA</div><div class="val">'+c.chatbotIA+'</div></div></div></div>';
+}
+function irConc(id){aba='c'+id;render();}
+function buildTabs(){
+  var t=[{id:'visao-geral',l:'Vis\u00e3o Geral'},{id:'oportunidades',l:'Oportunidades \u2726'}];
+  D.concorrentes.forEach(function(c){t.push({id:'c'+c.id,l:c.nome});});
+  document.getElementById('tabs').innerHTML=t.map(function(x){return '<button class="tab'+(aba===x.id?' active':'')+'" onclick="aba=\''+x.id+'\';render()">'+x.l+'</button>';}).join('');
+}
+function render(){
+  if(!D)return;
+  buildTabs();
+  var m=document.getElementById('main');
+  if(aba==='visao-geral')m.innerHTML=renderVisao();
+  else if(aba==='oportunidades')m.innerHTML=renderOpp();
+  else m.innerHTML=renderConc(parseInt(aba.replace('c','')));
+}
+fetch(API).then(function(r){return r.json();}).then(function(d){
+  D=d;
+  var dt=new Date(d.atualizadoEm);
+  document.getElementById('data-at').textContent=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('fontes').textContent='Fontes: '+d.fontes.join(', ');
+  render();
+}).catch(function(e){document.getElementById('main').innerHTML='<div class="loading"><i class="ri-error-warning-line"></i>Erro: '+e.message+'</div>';});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroDigital API - Painel de Teste | GPS.dev</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+    body { background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 32px 16px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    header i { font-size: 32px; color: #F97316; }
+    h1 { font-size: 24px; }
+    .subtitulo { color: #94a3b8; margin-bottom: 32px; font-size: 14px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    .card h2 { font-size: 16px; color: #F97316; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    button { background: #F97316; color: #0f172a; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-right: 8px; margin-bottom: 8px; }
+    button:hover { background: #fb923c; }
+    pre { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 13px; margin-top: 12px; max-height: 320px; }
+    input { background: #0f172a; border: 1px solid #334155; color: #e2e8f0; padding: 10px; border-radius: 8px; margin-bottom: 8px; margin-right: 8px; width: 200px; }
+    footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <i class="ri-plant-line"></i>
+      <h1>AgroDigital API</h1>
+    </header>
+    <p class="subtitulo">Painel de teste do backend — GPS.dev</p>
+
+    <div class="card">
+      <h2><i class="ri-database-2-line"></i> Consultar dados (GET)</h2>
+      <button onclick="chamarApi('/api/fazendas')">Listar fazendas</button>
+      <button onclick="chamarApi('/api/fazendas/3')">Fazenda Pipe (id 3)</button>
+      <button onclick="chamarApi('/api/safras')">Listar safras</button>
+      <pre id="resultado-get">Clique em um botão acima para testar...</pre>
+    </div>
+
+    <div class="card">
+      <h2><i class="ri-add-circle-line"></i> Cadastrar fazenda (POST)</h2>
+      <input id="nome" placeholder="Nome da fazenda">
+      <input id="cidade" placeholder="Cidade">
+      <input id="cultura" placeholder="Cultura principal">
+      <br>
+      <button onclick="criarFazenda()">Cadastrar</button>
+      <pre id="resultado-post">Preencha os campos e clique em Cadastrar...</pre>
+    </div>
+
+    <footer>GPS.dev — Gustavo Paula Santos · AgroDigital API v1.0.0</footer>
+  </div>
+
+  <script>
+    // Chama a API e mostra o resultado formatado
+    async function chamarApi(rota) {
+      const el = document.getElementById('resultado-get');
+      el.textContent = 'Carregando...';
+      try {
+        const resposta = await fetch(rota);
+        const dados = await resposta.json();
+        el.textContent = JSON.stringify(dados, null, 2);
+      } catch (erro) {
+        el.textContent = 'Erro: ' + erro.message;
+      }
+    }
+
+    // Envia POST com JSON no corpo
+    async function criarFazenda() {
+      const el = document.getElementById('resultado-post');
+      el.textContent = 'Enviando...';
+      try {
+        const resposta = await fetch('/api/fazendas', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome: document.getElementById('nome').value,
+            cidade: document.getElementById('cidade').value,
+            culturaPrincipal: document.getElementById('cultura').value
+          })
+        });
+        const dados = await resposta.json();
+        el.textContent = JSON.stringify(dados, null, 2);
+      } catch (erro) {
+        el.textContent = 'Erro: ' + erro.message;
+      }
+    }
+  </script>
+</body>
+</html>

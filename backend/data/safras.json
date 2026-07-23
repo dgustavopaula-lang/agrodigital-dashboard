@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "fazendaId": 1,
+    "cultura": "Soja",
+    "anoSafra": "2025/2026",
+    "areaPlantadaHectares": 400,
+    "producaoEstimadaSacas": 26000,
+    "status": "em_andamento"
+  },
+  {
+    "id": 2,
+    "fazendaId": 2,
+    "cultura": "Milho",
+    "anoSafra": "2025/2026",
+    "areaPlantadaHectares": 280,
+    "producaoEstimadaSacas": 33600,
+    "status": "em_andamento"
+  },
+  {
+    "id": 3,
+    "fazendaId": 3,
+    "cultura": "Mandioca",
+    "anoSafra": "2026",
+    "areaPlantadaHectares": 350,
+    "producaoEstimadaSacas": 0,
+    "status": "planejada"
+  }
+]
