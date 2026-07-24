@@ -1,3 +1,5 @@
+import GeminiAssistente from './components/GeminiAssistente';
+import AnaliseConcorrentes from './components/AnaliseConcorrentes';
 import { useState, useEffect } from 'react';
 import ChatBot from './components/ChatBot';
 
@@ -43,6 +45,8 @@ export default function App() {
     { id: 'dashboard', label: 'Dashboard' },
     { id: 'fazendas', label: 'Fazendas' },
     { id: 'fazenda', label: 'Minha Fazenda' },
+  { id: 'assistente', label: '🌱 Assistente IA' },
+  { id: 'concorrentes', label: '📊 Concorrentes' },
   ];
 
   return (
@@ -117,6 +121,12 @@ export default function App() {
           </div>
         )}
 
+                {secao === 'concorrentes' && (
+          <div className="secao"><AnaliseConcorrentes /></div>
+        )}
+        {secao === 'assistente' && (
+          <div className="secao"><GeminiAssistente /></div>
+        )}
         {!carregando && secao === 'fazenda' && fazendaSel && (
           <div className="secao">
             <div className="painel fazenda-info">
