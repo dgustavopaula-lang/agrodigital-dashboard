@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const GEMINI_KEY = "AQ.Ab8RN6Kwol76gAr83MqcRxjdTtze0kcA9pKKx2jvuTiKXjdoRA";
+const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY || "";
 
 export default function GeminiAssistente() {
   const [pergunta, setPergunta] = useState("");
