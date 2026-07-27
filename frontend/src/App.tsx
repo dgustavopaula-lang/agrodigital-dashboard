@@ -6,6 +6,7 @@ import ChatInterno from './components/ChatInterno';
 import { useState, useEffect } from 'react';
 import ChatBot from './components/ChatBot';
 import MapaFazendas from './components/MapaFazendas';
+import Clima from './components/Clima';
 
 const API = 'https://agrodigital-api.onrender.com/api';
 
@@ -143,8 +144,7 @@ export default function App() {
 
         {secao === 'clima' && (
           <div className="secao">
-            <h2>🌦️ Clima</h2>
-            <p style={{color:'#94a3b8'}}>Módulo em desenvolvimento — previsão do tempo por fazenda.</p>
+            <Clima />
           </div>
         )}
 
