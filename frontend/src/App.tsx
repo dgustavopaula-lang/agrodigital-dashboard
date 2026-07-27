@@ -8,6 +8,7 @@ import ChatBot from './components/ChatBot';
 import MapaFazendas from './components/MapaFazendas';
 import Clima from './components/Clima';
 import Safra from './components/Safra';
+import Estoque from './components/Estoque';
 
 const API = 'https://agrodigital-api.onrender.com/api';
 
@@ -137,8 +138,7 @@ export default function App() {
 
         {secao === 'estoque' && (
           <div className="secao">
-            <h2>📦 Estoque</h2>
-            <p style={{color:'#94a3b8'}}>Módulo em desenvolvimento — insumos, sementes e defensivos.</p>
+            <Estoque />
           </div>
         )}
 
