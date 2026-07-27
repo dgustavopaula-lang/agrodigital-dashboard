@@ -9,6 +9,7 @@ import MapaFazendas from './components/MapaFazendas';
 import Clima from './components/Clima';
 import Safra from './components/Safra';
 import Estoque from './components/Estoque';
+import Operacoes from './components/Operacoes';
 
 const API = 'https://agrodigital-api.onrender.com/api';
 
@@ -131,8 +132,7 @@ export default function App() {
 
         {secao === 'operacoes' && (
           <div className="secao">
-            <h2>🚜 Operações</h2>
-            <p style={{color:'#94a3b8'}}>Módulo em desenvolvimento — maquinário, equipes e atividades de campo.</p>
+            <Operacoes />
           </div>
         )}
 
