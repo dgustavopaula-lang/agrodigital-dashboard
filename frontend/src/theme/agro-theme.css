@@ -1,0 +1,114 @@
+/* ============================================
+   AGRODIGITAL — TEMA VERDE ESCURO + LARANJA
+   GPS.dev · Cores sólidas, sem gradientes
+   Importar em src/main.tsx: import './theme/agro-theme.css'
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css');
+
+:root {
+  /* Fundo — verde escuro sólido */
+  --ag-bg:        #04220f;   /* fundo principal */
+  --ag-surface:   #06301a;   /* cards e painéis */
+  --ag-surface-2: #0a3f23;   /* hover / camada elevada */
+  --ag-border:    #14532d;   /* bordas */
+
+  /* Acento — laranja GPS.dev */
+  --ag-accent:       #F97316;
+  --ag-accent-hover: #ea6a0c;
+  --ag-accent-soft:  #7c3a0d; /* fundo de badge laranja */
+
+  /* Texto */
+  --ag-text:      #f0fdf4;
+  --ag-text-dim:  #86b89b;
+
+  /* Estados */
+  --ag-ok:    #22c55e;
+  --ag-warn:  #eab308;
+  --ag-error: #ef4444;
+
+  /* Tipografia */
+  --ag-font-display: 'Sora', sans-serif;
+  --ag-font-body: 'Inter', sans-serif;
+
+  --ag-radius: 12px;
+}
+
+body {
+  background: var(--ag-bg);
+  color: var(--ag-text);
+  font-family: var(--ag-font-body);
+  margin: 0;
+}
+
+h1, h2, h3, .ag-display { font-family: var(--ag-font-display); }
+
+/* ---------- Componentes base ---------- */
+
+.ag-card {
+  background: var(--ag-surface);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  padding: 20px;
+}
+
+.ag-card:hover { border-color: var(--ag-accent); }
+
+.ag-btn {
+  background: var(--ag-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font: 600 14px var(--ag-font-body);
+  cursor: pointer;
+}
+.ag-btn:hover { background: var(--ag-accent-hover); }
+
+.ag-btn-ghost {
+  background: transparent;
+  color: var(--ag-accent);
+  border: 1px solid var(--ag-accent);
+}
+.ag-btn-ghost:hover { background: var(--ag-accent-soft); color: #fff; }
+
+.ag-input {
+  background: var(--ag-bg);
+  border: 1px solid var(--ag-border);
+  border-radius: 8px;
+  color: var(--ag-text);
+  padding: 10px 12px;
+  font: 400 14px var(--ag-font-body);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ag-input:focus { outline: 2px solid var(--ag-accent); border-color: var(--ag-accent); }
+
+.ag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ag-accent-soft);
+  color: var(--ag-accent);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font: 600 12px var(--ag-font-body);
+}
+
+.ag-badge--ok    { background: #05391f; color: var(--ag-ok); }
+.ag-badge--warn  { background: #3d3305; color: var(--ag-warn); }
+.ag-badge--error { background: #3d0f0f; color: var(--ag-error); }
+
+.ag-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ag-table th {
+  text-align: left; padding: 10px 12px;
+  color: var(--ag-text-dim); font-weight: 600;
+  border-bottom: 1px solid var(--ag-border);
+}
+.ag-table td { padding: 10px 12px; border-bottom: 1px solid var(--ag-border); }
+.ag-table tr:hover td { background: var(--ag-surface-2); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--ag-bg); }
+::-webkit-scrollbar-thumb { background: var(--ag-border); border-radius: 4px; }
