@@ -45,14 +45,25 @@ export default function App() {
 
   return (
     <div className="app">
-      <nav className="topbar">
-        <span className="logo">🌾 AgroDigital</span>
-        <div className="nav-links">
+      <nav style={{background:'#0f172a', padding:'12px 16px', borderBottom:'1px solid #1e293b'}}>
+        <div style={{display:'flex', alignItems:'center', marginBottom:8}}>
+          <span style={{color:'#F97316', fontWeight:700, fontSize:18}}>🌾 AgroDigital</span>
+        </div>
+        <div style={{display:'flex', flexWrap:'wrap', gap:6}}>
           {menu.map(m => (
             <button
               key={m.id}
-              className={secao === m.id ? 'nav-btn ativo' : 'nav-btn'}
               onClick={() => setSecao(m.id)}
+              style={{
+                padding:'6px 12px',
+                borderRadius:20,
+                border:'none',
+                cursor:'pointer',
+                fontSize:12,
+                fontWeight:600,
+                background: secao === m.id ? '#F97316' : '#1e293b',
+                color: secao === m.id ? '#fff' : '#94a3b8',
+              }}
             >
               {m.label}
             </button>
