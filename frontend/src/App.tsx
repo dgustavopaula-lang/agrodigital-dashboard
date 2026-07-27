@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import ChatBot from './components/ChatBot';
 import MapaFazendas from './components/MapaFazendas';
 import Clima from './components/Clima';
+import Safra from './components/Safra';
 
 const API = 'https://agrodigital-api.onrender.com/api';
 
@@ -123,8 +124,7 @@ export default function App() {
 
         {secao === 'safra' && (
           <div className="secao">
-            <h2>🌱 Safra</h2>
-            <p style={{color:'#94a3b8'}}>Módulo em desenvolvimento — planejamento e acompanhamento de plantio e colheita.</p>
+            <Safra />
           </div>
         )}
 
