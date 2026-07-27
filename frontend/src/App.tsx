@@ -64,12 +64,19 @@ export default function App() {
 
         {secao === 'dashboard' && (
           <div className="secao">
-            <h2>Dashboard Geral</h2>
-            <div className="cards-grid">
-              <div className="card-stat"><span>Total de Fazendas</span><strong>{fazendas.length}</strong></div>
-              <div className="card-stat"><span>Área Total</span><strong>11.000 ha</strong></div>
-              <div className="card-stat"><span>Fazendas Ativas</span><strong>{fazendas.filter((f:any) => f.ativa).length}</strong></div>
-              <div className="card-stat"><span>Cultura Principal</span><strong>Soja / Milho</strong></div>
+            <h2 style={{marginBottom: 24}}>Dashboard Geral</h2>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, marginBottom:32}}>
+              {[
+                {label:'Total de Fazendas', valor: fazendas.length, cor:'#F97316'},
+                {label:'Área Total', valor:'11.000 ha', cor:'#22c55e'},
+                {label:'Fazendas Ativas', valor: fazendas.filter((f:any)=>f.ativa).length, cor:'#3b82f6'},
+                {label:'Cultura Principal', valor:'Soja / Milho', cor:'#a855f7'},
+              ].map(c => (
+                <div key={c.label} style={{background:'#1e293b', borderRadius:12, padding:'24px 20px'}}>
+                  <div style={{color:'#94a3b8', fontSize:13, marginBottom:12}}>{c.label}</div>
+                  <div style={{fontSize:28, fontWeight:700, color:c.cor}}>{c.valor}</div>
+                </div>
+              ))}
             </div>
           </div>
         )}
