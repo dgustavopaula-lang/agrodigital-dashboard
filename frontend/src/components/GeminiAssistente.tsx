@@ -32,7 +32,7 @@ export default function GeminiAssistente() {
 
   return (
     <div style={{ background: "#1e293b", padding: "1.5rem", borderRadius: "12px", border: "1px solid #F97316" }}>
-      <h3 style={{ color: "#F97316", marginBottom: "1rem" }}>🌱 Assistente AgroDigital (Gemini)</h3>
+      <h3 style={{ color: "#F97316", marginBottom: "1rem" }}> Assistente AgroDigital (Gemini)</h3>
       <textarea
         value={pergunta}
         onChange={e => setPergunta(e.target.value)}

@@ -47,7 +47,7 @@ export default function Clima() {
   }, []);
 
   if (carregando) return <div style={{color:'#94a3b8', padding:32}}>Carregando dados climáticos...</div>;
-  if (erro) return <div style={{color:'#ef4444', padding:32}}>{erro}</div>;
+  if (erro) return <div style={{color:'#f0f0f0', padding:32}}>{erro}</div>;
 
   return (
     <div>
@@ -85,7 +85,7 @@ export default function Clima() {
                   </div>
                 </>
               ) : (
-                <div style={{color:'#ef4444', fontSize:13}}>Dados indisponíveis</div>
+                <div style={{color:'#f0f0f0', fontSize:13}}>Dados indisponíveis</div>
               )}
             </div>
           );

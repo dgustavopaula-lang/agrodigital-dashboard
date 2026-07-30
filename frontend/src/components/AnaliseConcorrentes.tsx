@@ -2,7 +2,7 @@ export default function AnaliseConcorrentes() {
   return (
     <div style={{ padding: '2rem', textAlign: 'center' }}>
       <div style={{ background: '#1e293b', border: '1px solid #F97316', borderRadius: '12px', padding: '2rem', maxWidth: '500px', margin: '0 auto' }}>
-        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📊</div>
+        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}></div>
         <h2 style={{ color: '#F97316', marginBottom: '1rem' }}>Análise de Concorrentes</h2>
         <p style={{ color: '#94a3b8', marginBottom: '1.5rem' }}>
           Relatório completo: Aegro, Solinftec, Agrotools, Climate FieldView e oportunidades.

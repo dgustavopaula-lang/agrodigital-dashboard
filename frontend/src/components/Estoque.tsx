@@ -51,7 +51,7 @@ export default function Estoque() {
   return (
     <div>
       <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:4}}>
-        <h2 style={{margin:0}}>📦 Estoque</h2>
+        <h2 style={{margin:0}}> Estoque</h2>
         <button onClick={() => setAba(aba === 'novo' ? 'lista' : 'novo')} style={{padding:'8px 18px', background:'#F97316', color:'#fff', border:'none', borderRadius:8, fontWeight:700, cursor:'pointer'}}>
           {aba === 'novo' ? '← Voltar' : '+ Novo item'}
         </button>
@@ -81,9 +81,9 @@ export default function Estoque() {
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(150px,1fr))', gap:12, marginBottom:24}}>
             {[
               {label:'Total de itens', val:itens.length, cor:'#F97316'},
-              {label:'Itens críticos', val:criticos, cor: criticos > 0 ? '#ef4444' : '#22c55e'},
-              {label:'Fazendas', val:5, cor:'#3b82f6'},
-              {label:'Categorias', val:CATEGORIAS.length, cor:'#a855f7'},
+              {label:'Itens críticos', val:criticos, cor: criticos > 0 ? '#f0f0f0' : '#f0f0f0'},
+              {label:'Fazendas', val:5, cor:'#f0f0f0'},
+              {label:'Categorias', val:CATEGORIAS.length, cor:'#f0f0f0'},
             ].map(c => (
               <div key={c.label} style={{background:'#1e293b',borderRadius:10,padding:'16px'}}>
                 <div style={{color:'#94a3b8',fontSize:12,marginBottom:6}}>{c.label}</div>
@@ -107,7 +107,7 @@ export default function Estoque() {
             {filtrados.map(i => {
               const critico = i.quantidade <= i.minimo;
               return (
-                <div key={i.id} style={{background:'#1e293b',borderRadius:10,padding:'16px 20px',display:'grid',gridTemplateColumns:'2fr 1fr 1fr 1fr 1fr',gap:12,alignItems:'center',borderLeft:`3px solid ${critico?'#ef4444':'#334155'}`}}>
+                <div key={i.id} style={{background:'#1e293b',borderRadius:10,padding:'16px 20px',display:'grid',gridTemplateColumns:'2fr 1fr 1fr 1fr 1fr',gap:12,alignItems:'center',borderLeft:`3px solid ${critico?'#f0f0f0':'#334155'}`}}>
                   <div>
                     <div style={{color:'#F97316',fontSize:12,fontWeight:600}}>{i.fazenda}</div>
                     <div style={{color:'#e2e8f0',fontWeight:600,fontSize:14,marginTop:2}}>{i.produto}</div>
@@ -115,7 +115,7 @@ export default function Estoque() {
                   </div>
                   <div>
                     <div style={{color:'#64748b',fontSize:11}}>Quantidade</div>
-                    <div style={{color:critico?'#ef4444':'#e2e8f0',fontWeight:700,fontSize:15}}>{i.quantidade.toLocaleString()} {i.unidade}</div>
+                    <div style={{color:critico?'#f0f0f0':'#e2e8f0',fontWeight:700,fontSize:15}}>{i.quantidade.toLocaleString()} {i.unidade}</div>
                   </div>
                   <div>
                     <div style={{color:'#64748b',fontSize:11}}>Mínimo</div>
@@ -126,8 +126,8 @@ export default function Estoque() {
                     <div style={{color:'#94a3b8',fontSize:12}}>{i.data}</div>
                   </div>
                   <div style={{display:'flex',alignItems:'center',gap:8}}>
-                    {critico && <span style={{background:'#450a0a',color:'#ef4444',padding:'3px 8px',borderRadius:12,fontSize:10,fontWeight:700}}>CRÍTICO</span>}
-                    <button onClick={() => remover(i.id)} style={{background:'none',border:'none',color:'#ef4444',cursor:'pointer',fontSize:18,marginLeft:'auto'}}>×</button>
+                    {critico && <span style={{background:'#450a0a',color:'#f0f0f0',padding:'3px 8px',borderRadius:12,fontSize:10,fontWeight:700}}>CRÍTICO</span>}
+                    <button onClick={() => remover(i.id)} style={{background:'none',border:'none',color:'#f0f0f0',cursor:'pointer',fontSize:18,marginLeft:'auto'}}>×</button>
                   </div>
                 </div>
               );

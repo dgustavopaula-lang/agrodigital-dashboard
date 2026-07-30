@@ -36,22 +36,22 @@ export default function App() {
   }, []);
 
   const menu = [
-    { id: 'dashboard',  label: '📊 Dashboard' },
-    { id: 'fazendas',   label: '🏡 Fazendas' },
-    { id: 'mapa',       label: '🗺️ Mapa' },
-    { id: 'safra',      label: '🌱 Safra' },
-    { id: 'operacoes',  label: '🚜 Operações' },
-    { id: 'estoque',    label: '📦 Estoque' },
-    { id: 'clima',      label: '🌦️ Clima' },
-    { id: 'financeiro', label: '💰 Financeiro' },
-    { id: 'fluxo',      label: '📈 Fluxo Comercial' },
+    { id: 'dashboard',  label: ' Dashboard' },
+    { id: 'fazendas',   label: ' Fazendas' },
+    { id: 'mapa',       label: ' Mapa' },
+    { id: 'safra',      label: ' Safra' },
+    { id: 'operacoes',  label: ' Operações' },
+    { id: 'estoque',    label: ' Estoque' },
+    { id: 'clima',      label: ' Clima' },
+    { id: 'financeiro', label: ' Financeiro' },
+    { id: 'fluxo',      label: ' Fluxo Comercial' },
   ];
 
   return (
     <div className="app">
       <nav style={{background:'#0f172a', padding:'12px 16px', borderBottom:'1px solid #1e293b'}}>
         <div style={{display:'flex', alignItems:'center', marginBottom:8}}>
-          <span style={{color:'#F97316', fontWeight:700, fontSize:18}}>🌾 AgroDigital</span>
+          <span style={{color:'#F97316', fontWeight:700, fontSize:18}}> AgroDigital</span>
         </div>
         <div style={{display:'flex', flexWrap:'wrap', gap:6}}>
           {menu.map(m => (
@@ -83,9 +83,9 @@ export default function App() {
             <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, marginBottom:32}}>
               {[
                 {label:'Total de Fazendas', valor: fazendas.length, cor:'#F97316'},
-                {label:'Área Total', valor:'11.000 ha', cor:'#22c55e'},
-                {label:'Fazendas Ativas', valor: fazendas.filter((f:any)=>f.ativa).length, cor:'#3b82f6'},
-                {label:'Cultura Principal', valor:'Soja / Milho', cor:'#a855f7'},
+                {label:'Área Total', valor:'11.000 ha', cor:'#f0f0f0'},
+                {label:'Fazendas Ativas', valor: fazendas.filter((f:any)=>f.ativa).length, cor:'#f0f0f0'},
+                {label:'Cultura Principal', valor:'Soja / Milho', cor:'#f0f0f0'},
               ].map(c => (
                 <div key={c.label} style={{background:'#1e293b', borderRadius:12, padding:'24px 20px'}}>
                   <div style={{color:'#94a3b8', fontSize:13, marginBottom:12}}>{c.label}</div>

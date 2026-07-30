@@ -19,10 +19,10 @@ const STATUS_COR: any = {
 };
 
 const STATUS_ICONE: any = {
-  'Planejado':      '📋',
-  'Plantado':       '🌱',
-  'Em crescimento': '🌿',
-  'Colhido':        '🌾',
+  'Planejado':      '',
+  'Plantado':       '',
+  'Em crescimento': '',
+  'Colhido':        '',
 };
 
 export default function Safra() {
@@ -43,15 +43,15 @@ export default function Safra() {
 
   return (
     <div>
-      <h2 style={{marginBottom:4}}>🌱 Safra 2024/2025</h2>
+      <h2 style={{marginBottom:4}}> Safra 2024/2025</h2>
       <p style={{color:'#94a3b8', fontSize:13, marginBottom:24}}>Soja e Milho — 5 fazendas</p>
 
       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px,1fr))', gap:12, marginBottom:24}}>
         {[
           {label:'Área total', val:`${totalArea.toLocaleString()} ha`, cor:'#F97316'},
-          {label:'Sacas colhidas', val:totalSacas > 0 ? totalSacas.toLocaleString() : '—', cor:'#22c55e'},
+          {label:'Sacas colhidas', val:totalSacas > 0 ? totalSacas.toLocaleString() : '—', cor:'#f0f0f0'},
           {label:'Safras colhidas', val:`${colhidas}/${filtradas.length}`, cor:'#fb923c'},
-          {label:'Culturas', val:'Soja / Milho', cor:'#a855f7'},
+          {label:'Culturas', val:'Soja / Milho', cor:'#f0f0f0'},
         ].map(c => (
           <div key={c.label} style={{background:'#1e293b', borderRadius:10, padding:'16px'}}>
             <div style={{color:'#94a3b8', fontSize:12, marginBottom:6}}>{c.label}</div>

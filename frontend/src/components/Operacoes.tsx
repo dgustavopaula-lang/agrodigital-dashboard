@@ -20,12 +20,12 @@ const STATUS_COR: any = {
   'Agendado':      { bg:'#1e3a5f', cor:'#60a5fa' },
   'Em andamento':  { bg:'#14532d', cor:'#4ade80' },
   'Concluído':     { bg:'#422006', cor:'#fb923c' },
-  'Cancelado':     { bg:'#450a0a', cor:'#ef4444' },
+  'Cancelado':     { bg:'#450a0a', cor:'#f0f0f0' },
 };
 
 const TIPO_ICONE: any = {
-  'Plantio':'🌱', 'Colheita':'🌾', 'Pulverização':'💧', 'Adubação':'🧪',
-  'Manutenção':'🔧', 'Transporte':'🚛', 'Outro':'📋',
+  'Plantio':'', 'Colheita':'', 'Pulverização':'', 'Adubação':'',
+  'Manutenção':'', 'Transporte':'', 'Outro':'',
 };
 
 const carregar = (): Op[] => { try { return JSON.parse(localStorage.getItem(CHAVE) || JSON.stringify(INICIAL)); } catch { return INICIAL; } };
@@ -64,7 +64,7 @@ export default function Operacoes() {
   return (
     <div>
       <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:4}}>
-        <h2 style={{margin:0}}>🚜 Operações</h2>
+        <h2 style={{margin:0}}> Operações</h2>
         <button onClick={() => setAba(aba === 'novo' ? 'lista' : 'novo')} style={{padding:'8px 18px', background:'#F97316', color:'#fff', border:'none', borderRadius:8, fontWeight:700, cursor:'pointer'}}>
           {aba === 'novo' ? '← Voltar' : '+ Nova operação'}
         </button>
@@ -93,7 +93,7 @@ export default function Operacoes() {
         <>
           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(150px,1fr))', gap:12, marginBottom:24}}>
             {[
-              {label:'Em andamento', val:emAndamento, cor:'#22c55e'},
+              {label:'Em andamento', val:emAndamento, cor:'#f0f0f0'},
               {label:'Agendadas',    val:agendadas,   cor:'#60a5fa'},
               {label:'Concluídas',   val:concluidas,  cor:'#fb923c'},
               {label:'Total',        val:ops.length,  cor:'#F97316'},
@@ -124,7 +124,7 @@ export default function Operacoes() {
                   <div>
                     <div style={{color:'#F97316',fontSize:12,fontWeight:600}}>{o.fazenda}</div>
                     <div style={{color:'#e2e8f0',fontWeight:600,fontSize:14,marginTop:2}}>{TIPO_ICONE[o.tipo]} {o.tipo} — {o.descricao}</div>
-                    <div style={{color:'#64748b',fontSize:11,marginTop:2}}>🔧 {o.maquina}</div>
+                    <div style={{color:'#64748b',fontSize:11,marginTop:2}}> {o.maquina}</div>
                   </div>
                   <div>
                     <div style={{color:'#64748b',fontSize:11}}>Responsável</div>
@@ -136,7 +136,7 @@ export default function Operacoes() {
                   </div>
                   <div style={{display:'flex',alignItems:'center',gap:8}}>
                     <span style={{background:sc.bg,color:sc.cor,padding:'4px 10px',borderRadius:20,fontSize:11,fontWeight:700}}>{o.status}</span>
-                    <button onClick={() => remover(o.id)} style={{background:'none',border:'none',color:'#ef4444',cursor:'pointer',fontSize:18,marginLeft:'auto'}}>×</button>
+                    <button onClick={() => remover(o.id)} style={{background:'none',border:'none',color:'#f0f0f0',cursor:'pointer',fontSize:18,marginLeft:'auto'}}>×</button>
                   </div>
                 </div>
               );
